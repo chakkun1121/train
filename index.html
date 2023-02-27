@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>トレインシミュレーター</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <header>
+    <h1>トレインシミュレーター</h1>
+  </header>
+  <main>
+    <div id="start_manu">
+      <div class="set-distance">
+        <p>距離<input type="number" value=5 id="set_distance"> km</p>
+      </div>
+      <div class="set_max_speed">
+        <!--<p>最高速度 json 形式で(<a href="example.json" target="_target">例</a>)</p>
+        <textarea id="max_speed_json"></textarea>-->
+        <p>最高速度→<input type="number" id="set_max_speed" value=120>km/h</p>
+      </div>
+      <label style="display:none"><input type="checkbox" id="use_ato">ATO自動運転を使用する</label>
+      <button onclick="start_game();">ゲームをスタート</button>
+      <details class="helps">
+        <summary>使い方</summary>
+        <div class="help">
+          <h2>車両の動かし方</h2>
+          <p>
+            このシュミレータでは、マスコンハンドルを上下キーで操作して動かします。最初に下キーを連打して、加速5までマスコンハンドルを下げて最高速度になったら0まで上キーを押して戻します。最後に停車するときには、上キーを押してマスコンハンドルを減速位置にして止めます。
+          </p>
+        </div>
+        <div class="help">
+          <h2>マスコンハンドルとは？</h2>
+          <p>鉄道では速度調節でマスコンハンドルというハンドルを使用しています。このシュミレーターでは加速５段階、徐行(表示では0)、減速８段階、緊急停止があります。</p>
+        </div>
+      </details>
+      <button onclick="updata()">このゲームを更新する</button>
+    </div>
+    <div id="game">
+      <div class="canvas" oncontextmenu="return false;">
+        <canvas id="canvas" height="500px" width="1000px"></canvas>
+      </div>
+      <p class="distance">ゴールまでの距離:<spen id="distance"></spen>
+      </p>
+      <p class="speed">スピード:<spen id="speed"></spen>km/h</p>
+      <p class="max-speed">この区間の最高速度: <spen id="max_speed"></spen>km/h</p>
+      <p>マスコンハンドル: <spen id="handol"></spen>
+      </p>
+      <p>所要時間: <spen id="time"></spen>
+      </p>
+      <div id="atc">
+        <p>ATCブレーキ作動中</p>
+      </div>
+      <div class="keys">
+        <button onclick="button_key('up')">マスコンハンドル上げる</button>
+        <button onclick="button_key('down')">マスコンハンドルを下げる</button>
+      </div>
+      <div id="result_game">
+        <h2>結果</h2>
+        <ul>
+          <li>停止位置: <spen id="result_distance_m"></spen>m</li>
+          <li>所要時間: <spen id="result_time"></spen>
+          </li>
+        </ul>
+        <button onclick="view_start_menu()">ゲームを終了し、スタート画面に戻る</button>
+      </div>
+  </main>
+  <script src="hotkeys.js" defer></script>
+
+  <script src="script.js" defer></script>
+
+</body>
+
+</html>

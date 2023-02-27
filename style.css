@@ -1,0 +1,71 @@
+/*全てに適応*/
+*{
+  box-sizing: border-box;
+  user-select: none;
+}
+button{
+  min-height:48px;
+  min-width:48px;
+}
+/*header*/
+/*#start-menu*/
+#set_distance{
+  width:40px;
+}
+#set_max_speed{
+  width: 40px;
+}
+/*set-distance*/
+/*helps*/
+details.helps {
+  padding: 10px;
+}
+.helps summary{
+  font-size:20px;
+  padding:10px;
+}
+/*#game*/
+#game{
+  display:none;
+}
+#atc{
+  background-color:red;
+  display: none;
+  color:red;
+    width: fit-content;
+}
+#atc p{
+  color:white;
+}
+.canvas {
+  display: flex;
+  justify-content: center;
+}  
+.keys {
+  display: none;
+  flex-direction: column;
+}
+/*#result*/
+#result_game{
+  display :none;
+}
+#result_game li {
+  font-size: 20px;
+  list-style: none;
+}
+/*レスポンス*/
+@media screen and (max-width: 1000px) {
+  canvas{
+    width:500px;
+    height: 250px;
+  }
+}
+@media screen and (max-width: 500px) {
+  canvas{
+    width:1000px;
+    height: 500px;
+  }
+    .keys {
+    display: flex;
+  }
+}
